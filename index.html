@@ -75,7 +75,6 @@
         .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         .logo-container img { height: 55px; width: 55px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-color); }
         
-        /* Düzəldilmiş MED 🐾 VET Logosu */
         .logo-text { font-size: 26px; font-weight: 800; color: var(--text-color); letter-spacing: 1px; display: flex; align-items: center; gap: 6px; }
         .logo-text i { color: var(--primary-color); font-size: 22px; transform: rotate(15deg); margin-bottom: 4px; }
         .logo-text span { color: var(--primary-color); }
@@ -112,7 +111,9 @@
 
         .hero-right { flex: 0.9; background: var(--card-bg); padding: 20px; border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
         .hero-carousel { position: relative; width: 100%; height: 380px; border-radius: 20px; overflow: hidden; background-color: var(--bg-color); }
-        .hero-carousel img { width: 100%; height: 100%; object-fit: contain; position: absolute; opacity: 0; transition: opacity 1s ease; }
+        
+        /* BU HİSSƏDƏ DƏYİŞİKLİK EDİLDİ */
+        .hero-carousel img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 1s ease; }
         .hero-carousel img.active { opacity: 1; }
         
         .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
@@ -249,6 +250,9 @@
 
             .fab-container { bottom: 90px; right: 20px; }
             .fab-main-btn { width: 55px; height: 55px; font-size: 28px; }
+            
+            /* BU HİSSƏDƏ DƏYİŞİKLİK EDİLDİ */
+            .hero-carousel { height: 250px; }
         }
     </style>
 
