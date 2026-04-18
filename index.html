@@ -162,15 +162,13 @@
         .booking-info p { color: var(--light-text); margin-bottom: 25px; line-height: 1.6; }
         .booking-form { flex: 1; min-width: 300px; background: var(--bg-color); padding: 35px; border-radius: 20px; border: 1px solid var(--border-color); }
         .form-group { margin-bottom: 20px; width: 100%; min-width: 0; }
-        .form-row { display: flex; gap: 15px; width: 100%; }
-        .form-row .form-group { flex: 1; min-width: 0; }
         .form-group label { display: block; font-size: 13px; color: var(--light-text); margin-bottom: 5px; font-weight: 500;}
         
-        /* INPUT SAFARİ OVERFLOW FIX */
+        /* INPUT & SELECT ÜÇÜN DÜZƏLİŞLƏR */
         .form-group input, .form-group select { 
             width: 100%; 
             max-width: 100%;
-            min-width: 0; /* Flexbox üçün vacibdir */
+            min-width: 0; 
             padding: 14px; 
             border-radius: 12px; 
             border: 1px solid var(--border-color); 
@@ -179,9 +177,23 @@
             outline: none; 
             font-size: 15px; 
             font-family: 'Poppins', sans-serif; 
-            box-sizing: border-box; /* Safari kənara çıxmasının qarşısını alır */
+            box-sizing: border-box; 
         }
-        .btn-whatsapp-form { width: 100%; background: #25D366; color: white; border: none; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; transition: 0.3s; }
+
+        /* SELECT KƏNARI OXUNUN (ICON) YENİDƏN DİZAYNI VƏ YERLƏŞMƏSİ */
+        .form-group select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f39c12' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            background-size: 18px;
+            padding-right: 45px;
+            cursor: pointer;
+        }
+
+        .btn-whatsapp-form { width: 100%; background: #25D366; color: white; border: none; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; transition: 0.3s; margin-top: 10px; }
         .btn-whatsapp-form:hover { background: #20b858; transform: translateY(-2px); }
 
         /* --- XƏRİTƏ BÖLMƏSİ --- */
@@ -246,10 +258,8 @@
             
             .social-btn { width: 100%; justify-content: center; }
             
-            /* FORMANIN MOBİL DÜZƏLİŞLƏRİ - DAŞMA VƏ FAB DÜYMƏSİ ÜÇÜN */
-            .form-row { flex-direction: column; gap: 15px; width: 100%; }
-            .booking-section { padding: 30px 20px; gap: 25px; padding-bottom: 80px; /* FAB düyməsi ilə toqquşmaması üçün altdan boşluq əlavə edildi */ }
-            .booking-form { padding: 25px 20px; width: 100%; box-sizing: border-box; overflow: hidden; /* Tam içəridə saxlamaq üçün */ }
+            .booking-section { padding: 30px 20px; gap: 25px; padding-bottom: 80px; }
+            .booking-form { padding: 25px 20px; width: 100%; box-sizing: border-box; overflow: hidden; }
             
             .bottom-nav {
                 position: fixed; bottom: 0; left: 0; width: 100%; height: 70px; background: var(--nav-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
@@ -461,7 +471,7 @@
                 <div class="doc-info">
                     <h3>Dr. Eşqin Abaszadə</h3>
                     <p data-lang="doc_role_1">Peşəkar Baytar Həkim. Uzun illərin təcrübəsi ilə ev heyvanlarınızın sağlamlığına zəmanət verir.</p>
-                    <a href="tel:+994504408676" class="call-btn"><i class="fas fa-phone-alt"></i> <a href="tel:+994504408676" style="color: inherit; text-decoration: none;">+994 50 440 86 76</a></a>
+                    <a href="tel:+994504408676" class="call-btn"><i class="fas fa-phone-alt"></i> <span style="color: inherit; text-decoration: none;">+994 50 440 86 76</span></a>
                 </div>
             </div>
             <div class="doc-card">
@@ -471,7 +481,7 @@
                 <div class="doc-info">
                     <h3>Dr. Surxay Quluzadə</h3>
                     <p data-lang="doc_role_2">Uzman Veterinar. Cərrahi əməliyyatlar və dəqiq diaqnostika üzrə ixtisaslaşmış mütəxəssis.</p>
-                    <a href="tel:+994504408676" class="call-btn"><i class="fas fa-phone-alt"></i> <a href="tel:+994504408676" style="color: inherit; text-decoration: none;">+994 50 440 86 76</a></a>
+                    <a href="tel:+994504408676" class="call-btn"><i class="fas fa-phone-alt"></i> <span style="color: inherit; text-decoration: none;">+994 50 440 86 76</span></a>
                 </div>
             </div>
         </div>
@@ -500,17 +510,6 @@
                         <option value="Çip qoyulması">Çip qoyulması</option>
                         <option value="Pasport üçün arayışın verilməsi">Pasport üçün arayışın verilməsi</option>
                     </select>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label data-lang="form_date_label">Qəbul tarixi:</label>
-                        <input type="date" id="mainDate">
-                    </div>
-                    <div class="form-group">
-                        <label data-lang="form_time_label">Qəbul saatı:</label>
-                        <input type="time" id="mainTime">
-                    </div>
                 </div>
 
                 <button class="btn-whatsapp-form" onclick="sendMainForm()">
@@ -552,7 +551,7 @@
                 <i class="fab fa-facebook-f"></i> Medvet Klinika
             </a>
             <a href="https://wa.me/994504408676" target="_blank" class="social-btn">
-                <i class="fab fa-whatsapp"></i> Medvet Klinika
+                <i class="fab fa-whatsapp"></i> <span style="color: inherit; text-decoration: none;">+994 50 440 86 76</span>
             </a>
         </div>
     </div>
@@ -593,17 +592,6 @@
             </div>
             <div class="form-group">
                 <input type="text" id="modalPet" placeholder="Heyvanın növü (Məsələn: Pişik)">
-            </div>
-            
-            <div class="form-row">
-                <div class="form-group">
-                    <label data-lang="form_date_label">Qəbul tarixi:</label>
-                    <input type="date" id="modalDate">
-                </div>
-                <div class="form-group">
-                    <label data-lang="form_time_label">Qəbul saatı:</label>
-                    <input type="time" id="modalTime">
-                </div>
             </div>
 
             <textarea id="modalNote" rows="3" placeholder="Əlavə qeydləriniz (İstəyə bağlı)..."></textarea>
@@ -669,7 +657,6 @@
                 doc_role_1: "Peşəkar Baytar Həkim. Uzun illərin təcrübəsi ilə ev heyvanlarınızın sağlamlığına zəmanət verir.", doc_role_2: "Uzman Veterinar. Cərrahi əməliyyatlar və dəqiq diaqnostika üzrə ixtisaslaşmış mütəxəssis.",
                 call_btn: "Zəng et",
                 booking_title: "Onlayn Qəbul və Rezervasiya", booking_desc: "Növbə gözləmədən sürətli rezervasiya üçün formu doldurun. Məlumatlarınız birbaşa WhatsApp nömrəmizə göndəriləcək.",
-                form_date_label: "Qəbul tarixi:", form_time_label: "Qəbul saatı:",
                 address_title: "Ünvanımız", address_desc: "Bizi ziyarət etmək çox asandır.", address_detail: "Gəncə prospekti 48A (Xəzər dairəsi), Bakı, Azərbaycan", address_time: "11:00 - 20:00 (Hər gün)",
                 contact_methods_title: "Əlaqə vasitələri", contact_methods_desc: "Bizimlə əlaqə saxlamaq üçün aşağıdakı vasitələrdən istifadə edə bilərsiniz.",
                 form_btn: "WhatsApp ilə göndər", modal_serv_label: "Seçilmiş Xidmət:",
@@ -691,7 +678,6 @@
                 doc_role_1: "Professional Vet. Guarantees your pet's health with years of experience.", doc_role_2: "Expert Vet. Specialized in surgeries and accurate diagnostics.",
                 call_btn: "Call",
                 booking_title: "Online Booking", booking_desc: "Fill out the form for quick booking. Your details will be sent directly to our WhatsApp.",
-                form_date_label: "Appointment Date:", form_time_label: "Appointment Time:",
                 address_title: "Our Address", address_desc: "It is very easy to visit us.", address_detail: "Ganja Avenue 48A, Baku, Azerbaijan", address_time: "11:00 - 20:00 (Every day)",
                 contact_methods_title: "Contact Methods", contact_methods_desc: "You can use the methods below to contact us.",
                 form_btn: "Send via WhatsApp", modal_serv_label: "Selected Service:",
@@ -713,7 +699,6 @@
                 doc_role_1: "Опытный ветеринар, гарантирующий здоровье вашего питомца.", doc_role_2: "Специалист по хирургическим операциям и диагностике.",
                 call_btn: "Позвонить",
                 booking_title: "Онлайн Запись", booking_desc: "Заполните форму для быстрой записи. Мы свяжемся с вами через WhatsApp.",
-                form_date_label: "Дата приема:", form_time_label: "Время приема:",
                 address_title: "Наш Адрес", address_desc: "Нас очень легко найти.", address_detail: "пр. Гянджа 48A, Баку, Азербайджан", address_time: "11:00 - 20:00 (Ежедневно)",
                 contact_methods_title: "Способы связи", contact_methods_desc: "Вы можете связаться с нами следующими способами.",
                 form_btn: "В WhatsApp", modal_serv_label: "Выбранная услуга:",
@@ -752,11 +737,9 @@
         }
         function closeModal() { document.getElementById('serviceModal').style.display = 'none'; }
         
-        function sendToWA(name, pet, serv, date, time, note) {
+        function sendToWA(name, pet, serv, note) {
             if(!name || !pet) { alert("Xahiş olunur Ad və Heyvanın növünü doldurun."); return; }
             let text = `Salam Medvet klinikası.\n👤 Ad: ${name}\n🐾 Heyvanın növü: ${pet}\n🩺 Xidmət: *${serv}*`;
-            if(date) text += `\n📅 Tarix: ${date}`;
-            if(time) text += `\n⏰ Saat: ${time}`;
             if(note) text += `\n📝 Qeyd: ${note}`;
             window.open(`https://wa.me/${clinicPhone}?text=${encodeURIComponent(text)}`, '_blank');
         }
@@ -766,8 +749,6 @@
                 document.getElementById('modalName').value, 
                 document.getElementById('modalPet').value, 
                 document.getElementById('modalSelectedService').value, 
-                document.getElementById('modalDate').value,
-                document.getElementById('modalTime').value,
                 document.getElementById('modalNote').value
             );
             closeModal();
@@ -777,8 +758,6 @@
                 document.getElementById('mainName').value, 
                 document.getElementById('mainPet').value, 
                 document.getElementById('mainService').value, 
-                document.getElementById('mainDate').value,
-                document.getElementById('mainTime').value,
                 ""
             );
         }
