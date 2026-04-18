@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MedVet Hospital</title>
+    <meta name="format-detection" content="telephone=no"> <title>MedVet Hospital</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
@@ -81,8 +81,7 @@
 
         .desktop-nav { display: flex; gap: 25px; align-items: center; }
         .desktop-nav a { font-size: 15px; font-weight: 600; color: var(--text-color); transition: 0.3s; text-decoration: none; }
-        .desktop-nav a:hover, .desktop-nav a.active { color: var(--primary-color); }
-
+        
         .controls { display: flex; gap: 10px; align-items: center; }
         .controls select, .controls button { padding: 8px 15px; border-radius: 10px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); cursor: pointer; font-weight: 500; transition: 0.3s; }
 
@@ -104,11 +103,9 @@
         .hero-left p { font-size: 16px; line-height: 1.6; color: var(--light-text); margin-bottom: 35px; }
         
         .hero-btns { display: flex; gap: 15px; }
-        .btn-primary { background: var(--primary-color); color: #fff; padding: 14px 30px; border-radius: 50px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; text-decoration: none; }
-        .btn-outline { background: transparent; color: var(--text-color); padding: 14px 30px; border-radius: 50px; font-weight: 600; border: 2px solid var(--primary-color); cursor: pointer; transition: 0.3s; text-decoration: none; }
-        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-3px); }
-        .btn-outline:hover { background: var(--primary-color); color: #fff; transform: translateY(-3px); }
-
+        .btn-primary { background: var(--primary-color); color: #fff; padding: 14px 30px; border-radius: 50px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; text-decoration: none; display: flex; justify-content: center; align-items: center; }
+        .btn-outline { background: transparent; color: var(--text-color); padding: 14px 30px; border-radius: 50px; font-weight: 600; border: 2px solid var(--primary-color); cursor: pointer; transition: 0.3s; text-decoration: none; display: flex; justify-content: center; align-items: center; }
+        
         .hero-right { flex: 0.9; background: var(--card-bg); padding: 20px; border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
         .hero-carousel { position: relative; width: 100%; height: 380px; border-radius: 20px; overflow: hidden; background-color: var(--bg-color); }
         .hero-carousel img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 1s ease; }
@@ -134,7 +131,6 @@
         /* --- XİDMƏTLƏR --- */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .service-card { background: var(--card-bg); border-radius: 20px; padding: 30px; border: 1px solid var(--border-color); cursor: pointer; transition: 0.3s; display: flex; flex-direction: column; align-items: flex-start; }
-        .service-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.06); border-color: var(--primary-color); }
         .service-icon { background: var(--primary-light); width: 60px; height: 60px; border-radius: 15px; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; }
         .service-icon i { font-size: 26px; color: var(--primary-color); }
         .service-card h3 { font-size: 18px; margin-bottom: 10px; font-weight: 600; }
@@ -144,7 +140,6 @@
         /* --- HƏKİMLƏR --- */
         .doctors-wrapper { display: flex; flex-direction: column; gap: 30px; }
         .doc-card { display: flex; background: var(--card-bg); border-radius: 25px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: 0.3s; align-items: center; }
-        .doc-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
         
         .doc-img-wrapper { width: 300px; height: 380px; flex-shrink: 0; background: #fff; position: relative; overflow: hidden; }
         .doc-img-wrapper img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transform: scale(1.05); clip-path: inset(5px); display: block; }
@@ -153,7 +148,6 @@
         .doc-info h3 { font-size: 26px; font-weight: 700; margin-bottom: 15px; color: var(--text-color); }
         .doc-info p { color: var(--light-text); margin-bottom: 30px; font-size: 15px; line-height: 1.6; }
         .call-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--primary-light); color: var(--primary-color); padding: 12px 30px; border-radius: 50px; font-weight: 700; font-size: 16px; text-decoration: none; transition: 0.3s; }
-        .call-btn:hover { background: var(--primary-color); color: #fff; }
 
         /* --- FORM (REZERVASYON) --- */
         .booking-section { background: var(--card-bg); border-radius: 25px; padding: 50px; border: 1px solid var(--border-color); box-shadow: 0 15px 40px rgba(0,0,0,0.04); display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
@@ -180,7 +174,6 @@
             box-sizing: border-box; 
         }
 
-        /* SELECT KƏNARI OXUNUN (ICON) YENİDƏN DİZAYNI VƏ YERLƏŞMƏSİ */
         .form-group select {
             appearance: none;
             -webkit-appearance: none;
@@ -194,7 +187,6 @@
         }
 
         .btn-whatsapp-form { width: 100%; background: #25D366; color: white; border: none; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; transition: 0.3s; margin-top: 10px; }
-        .btn-whatsapp-form:hover { background: #20b858; transform: translateY(-2px); }
 
         /* --- XƏRİTƏ BÖLMƏSİ --- */
         .map-section { display: flex; align-items: center; gap: 50px; background: var(--card-bg); padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid var(--border-color); }
@@ -209,20 +201,17 @@
         .social-tools { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .social-btn { display: flex; align-items: center; gap: 12px; background: var(--card-bg); padding: 20px 40px; border-radius: 50px; border: 1px solid var(--border-color); color: var(--text-color); font-weight: 600; font-size: 18px; text-decoration: none; transition: 0.3s; box-shadow: 0 5px 20px rgba(0,0,0,0.03); }
         .social-btn i { font-size: 26px; color: var(--primary-color); }
-        .social-btn:hover { border-color: var(--primary-color); transform: translateY(-5px); }
 
         /* --- FLOATING ACTION BUTTON (FAB) --- */
         .fab-container { position: fixed; bottom: 40px; right: 40px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; gap: 15px; }
         .fab-options { display: flex; flex-direction: column; gap: 12px; opacity: 0; visibility: hidden; transform: translateY(20px); transition: 0.3s ease; }
         .fab-options.show { opacity: 1; visibility: visible; transform: translateY(0); }
         .fab-item { display: flex; align-items: center; gap: 10px; background: var(--card-bg); color: var(--text-color); padding: 12px 20px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 1px solid var(--border-color); transition: 0.3s; }
-        .fab-item:hover { background: var(--bg-color); }
         .fab-item i.fa-whatsapp { color: #25D366; font-size: 20px; }
         .fab-item i.fa-phone-alt { color: #007bff; font-size: 18px; }
         .fab-main-btn { width: 65px; height: 65px; background: #25D366; color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 32px; cursor: pointer; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); transition: 0.3s; border: none; outline: none; }
-        .fab-main-btn:hover { transform: scale(1.08); }
-        .fab-main-btn i { transition: 0.3s; }
         .fab-main-btn.active i { transform: rotate(45deg); }
+        .fab-main-btn i { transition: 0.3s; }
 
         /* --- MODAL (POPUP) --- */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; z-index: 20000; padding: 20px; }
@@ -230,6 +219,20 @@
         .close-btn { position: absolute; top: 20px; right: 25px; font-size: 28px; cursor: pointer; color: var(--light-text); }
         input[readonly] { background-color: var(--border-color) !important; color: var(--primary-color) !important; font-weight: bold; cursor: not-allowed; }
         .modal-content textarea { width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); margin-bottom: 20px; outline: none; resize: none; font-family: 'Poppins', sans-serif;}
+
+        /* --- HOVER EFFEKTLƏRİ (YALNIZ PC ÜÇÜN - MOBİLDƏ KLİK PROBLEMİNİ HƏLL EDİR) --- */
+        @media (hover: hover) {
+            .desktop-nav a:hover, .desktop-nav a.active { color: var(--primary-color); }
+            .btn-primary:hover { background: var(--primary-hover); transform: translateY(-3px); }
+            .btn-outline:hover { background: var(--primary-color); color: #fff; transform: translateY(-3px); }
+            .service-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.06); border-color: var(--primary-color); }
+            .doc-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+            .call-btn:hover { background: var(--primary-color); color: #fff; }
+            .btn-whatsapp-form:hover { background: #20b858; transform: translateY(-2px); }
+            .social-btn:hover { border-color: var(--primary-color); transform: translateY(-5px); }
+            .fab-item:hover { background: var(--bg-color); }
+            .fab-main-btn:hover { transform: scale(1.08); }
+        }
 
         /* --- MOBİL MENYU VƏ RESPONSİVLİK --- */
         .bottom-nav { display: none; }
@@ -351,9 +354,10 @@
                 </div>
                 <h1 data-lang="hero_title">Dostlarınız üçün sadəcə tibbi xidmət deyil, əsl <span>sevgi dolu qayğı.</span></h1>
                 <p data-lang="hero_desc">MedVet klinikası olaraq hər bir pasiyentimizə fərdi yanaşır, ən müasir tibbi avadanlıqlar və illərin təcrübəsi ilə onların sağlamlığını güvənə alırıq.</p>
+                
                 <div class="hero-btns">
-                    <button class="btn-primary" onclick="document.getElementById('booking').scrollIntoView();" data-lang="hero_btn1">Rezervasiya et</button>
-                    <button class="btn-outline" onclick="document.getElementById('about').scrollIntoView();" data-lang="hero_btn2">Daha ətraflı</button>
+                    <a href="#booking" class="btn-primary" data-lang="hero_btn1">Rezervasiya et</a>
+                    <a href="#about" class="btn-outline" data-lang="hero_btn2">Daha ətraflı</a>
                 </div>
             </div>
 
@@ -471,7 +475,7 @@
                 <div class="doc-info">
                     <h3>Dr. Eşqin Abaszadə</h3>
                     <p data-lang="doc_role_1">Peşəkar Baytar Həkim. Uzun illərin təcrübəsi ilə ev heyvanlarınızın sağlamlığına zəmanət verir.</p>
-                    <a href="tel:+994504408676" class="call-btn"><i class="fas fa-phone-alt"></i> <span style="color: inherit; text-decoration: none;">+994 50 440 86 76</span></a>
+                    <a href="tel:+994504408676" class="call-btn"><i class="fas fa-phone-alt"></i> <span>+994 50 440 86 76</span></a>
                 </div>
             </div>
             <div class="doc-card">
@@ -481,7 +485,7 @@
                 <div class="doc-info">
                     <h3>Dr. Surxay Quluzadə</h3>
                     <p data-lang="doc_role_2">Uzman Veterinar. Cərrahi əməliyyatlar və dəqiq diaqnostika üzrə ixtisaslaşmış mütəxəssis.</p>
-                    <a href="tel:+994504408676" class="call-btn"><i class="fas fa-phone-alt"></i> <span style="color: inherit; text-decoration: none;">+994 50 440 86 76</span></a>
+                    <a href="tel:+994504408676" class="call-btn"><i class="fas fa-phone-alt"></i> <span>+994 50 440 86 76</span></a>
                 </div>
             </div>
         </div>
