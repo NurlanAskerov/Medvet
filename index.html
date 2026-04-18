@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no"> <title>MedVet Hospital</title>
+    <meta name="format-detection" content="telephone=no">
+    <title>MedVet Hospital</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
@@ -96,8 +97,6 @@
         /* --- HERO BÖLMƏSİ --- */
         .hero { display: flex; align-items: center; justify-content: space-between; gap: 40px; min-height: 75vh; }
         .hero-left { flex: 1.1; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--primary-light); color: var(--primary-color); padding: 8px 16px; border-radius: 30px; font-size: 14px; font-weight: 600; margin-bottom: 25px; }
-        .hero-badge .dot { width: 8px; height: 8px; background: var(--primary-color); border-radius: 50%; }
         .hero-left h1 { font-size: 42px; font-weight: 800; line-height: 1.3; margin-bottom: 20px; color: var(--text-color); }
         .hero-left h1 span { color: var(--primary-color); }
         .hero-left p { font-size: 16px; line-height: 1.6; color: var(--light-text); margin-bottom: 35px; }
@@ -158,7 +157,6 @@
         .form-group { margin-bottom: 20px; width: 100%; min-width: 0; }
         .form-group label { display: block; font-size: 13px; color: var(--light-text); margin-bottom: 5px; font-weight: 500;}
         
-        /* INPUT & SELECT ÜÇÜN DÜZƏLİŞLƏR */
         .form-group input, .form-group select { 
             width: 100%; 
             max-width: 100%;
@@ -220,7 +218,7 @@
         input[readonly] { background-color: var(--border-color) !important; color: var(--primary-color) !important; font-weight: bold; cursor: not-allowed; }
         .modal-content textarea { width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); margin-bottom: 20px; outline: none; resize: none; font-family: 'Poppins', sans-serif;}
 
-        /* --- HOVER EFFEKTLƏRİ (YALNIZ PC ÜÇÜN - MOBİLDƏ KLİK PROBLEMİNİ HƏLL EDİR) --- */
+        /* --- HOVER EFFEKTLƏRİ (YALNIZ PC ÜÇÜN) --- */
         @media (hover: hover) {
             .desktop-nav a:hover, .desktop-nav a.active { color: var(--primary-color); }
             .btn-primary:hover { background: var(--primary-hover); transform: translateY(-3px); }
@@ -283,7 +281,6 @@
     </style>
 
     <script>
-        // Səhifə açılmazdan öncə mövzunu (Ağ/Qara) tətbiq et
         (function() {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme) {
@@ -293,7 +290,6 @@
             }
         })();
 
-        // Səhifə yükləndikdə Preloader-i bağla
         window.addEventListener('load', function() {
             const preloader = document.getElementById('preloader');
             setTimeout(() => {
@@ -366,8 +362,8 @@
                 </div>
                 <div class="hero-stats">
                     <div class="hero-stat">
-                        <h4>24/7</h4>
-                        <p data-lang="stat1">Daim açıq</p>
+                        <h4>100%</h4>
+                        <p data-lang="stat1">Peşəkar xidmət</p>
                     </div>
                     <div class="hero-stat">
                         <h4>15+</h4>
@@ -582,19 +578,16 @@
         <div class="modal-content">
             <i class="fas fa-times close-btn" onclick="closeModal()"></i>
             <h3 id="modalTitle" style="margin-bottom: 20px; color: var(--text-color);">Sifariş</h3>
-            
             <div class="form-group">
                 <label data-lang="modal_serv_label">Seçilmiş Xidmət:</label>
                 <input type="text" id="modalSelectedService" readonly title="Dəyişdirmək mümkün deyil">
             </div>
-
             <div class="form-group">
                 <input type="text" id="modalName" placeholder="Adınız">
             </div>
             <div class="form-group">
                 <input type="text" id="modalPet" placeholder="Heyvanın növü (Məsələn: Pişik)">
             </div>
-
             <textarea id="modalNote" rows="3" placeholder="Əlavə qeydləriniz (İstəyə bağlı)..."></textarea>
             <button class="btn-whatsapp-form" onclick="sendModalForm()">
                 <i class="fab fa-whatsapp"></i> <span data-lang="form_btn">WhatsApp ilə göndər</span>
@@ -640,15 +633,14 @@
             }
         }
 
-        // DİLLƏR
+        // DİLLƏR - 7/24 İFADƏLƏRİ TƏMİZLƏNDİ
         const translations = {
             az: {
                 nav_home: "Ana Səhifə", nav_about: "Haqqımızda", nav_serv: "Xidmətlər", nav_book: "Qəbul", nav_contact: "Əlaqə", nav_address: "Ünvan",
-                badge_text: "7/24 veterinar dəstək",
                 hero_title: "Dostlarınız üçün sadəcə tibbi xidmət deyil, əsl <span>sevgi dolu qayğı.</span>", 
                 hero_desc: "MedVet klinikası olaraq hər bir pasiyentimizə fərdi yanaşır, ən müasir tibbi avadanlıqlar və illərin təcrübəsi ilə onların sağlamlığını güvənə alırıq.", 
                 hero_btn1: "Rezervasiya et", hero_btn2: "Daha ətraflı",
-                stat1: "Daim açıq", stat2: "Xidmət", stat3: "Sürətli müraciət",
+                stat1: "Peşəkar xidmət", stat2: "Xidmət", stat3: "Sürətli müraciət",
                 about_title: "Niyə MedVet Klinikasını seçməlisiniz?",
                 about_desc: "Bizim məqsədimiz sadəcə xəstəlikləri müalicə etmək deyil, eyni zamanda ev heyvanlarınızın həyat keyfiyyətini artırmaqdır. Komfortlu mühitimiz və gülərüz personalımızla klinikamıza gələn hər bir dostumuz özünü evindəki kimi hiss edəcək.",
                 about_f1: "Təcrübəli və peşəkar həkim heyəti", about_f2: "Müasir avadanlıqlar və dəqiq diaqnostika", about_f3: "Hər bir pasiyentə fərdi və sevgi dolu yanaşma",
@@ -665,11 +657,10 @@
             },
             en: {
                 nav_home: "Home", nav_about: "About Us", nav_serv: "Services", nav_book: "Booking", nav_contact: "Contact", nav_address: "Address",
-                badge_text: "24/7 veterinary support",
                 hero_title: "Not just medical service, but true <span>loving care.</span>", 
                 hero_desc: "At MedVet clinic, we approach each patient individually, ensuring their health with modern equipment and an experienced team.", 
                 hero_btn1: "Book Now", hero_btn2: "Learn More",
-                stat1: "Always open", stat2: "Services", stat3: "Quick request",
+                stat1: "Professional service", stat2: "Services", stat3: "Quick request",
                 about_title: "Why choose MedVet Clinic?",
                 about_desc: "Our goal is not just to treat illnesses, but to improve the quality of life of your pets. With our comfortable environment, every friend who comes to our clinic will feel at home.",
                 about_f1: "Experienced and professional team", about_f2: "Modern equipment and precise diagnostics", about_f3: "Individual and loving approach to every patient",
@@ -686,11 +677,10 @@
             },
             ru: {
                 nav_home: "Главная", nav_about: "О нас", nav_serv: "Услуги", nav_book: "Запись", nav_contact: "Контакт", nav_address: "Адрес",
-                badge_text: "24/7 поддержка",
                 hero_title: "Не просто лечение, а настоящая <span>забота с любовью.</span>", 
                 hero_desc: "В клинике MedVet мы индивидуально подходим к каждому пациенту, обеспечивая его здоровье с помощью современного оборудования.", 
                 hero_btn1: "Записаться", hero_btn2: "Подробнее",
-                stat1: "Всегда открыто", stat2: "Услуг", stat3: "Быстрый ответ",
+                stat1: "Проф. сервис", stat2: "Услуг", stat3: "Быстрый ответ",
                 about_title: "Почему стоит выбрать клинику MedVet?",
                 about_desc: "Наша цель - не просто лечить болезни, но и улучшать качество жизни ваших питомцев. В нашей уютной обстановке каждый друг будет чувствовать себя как дома.",
                 about_f1: "Опытная и профессиональная команда", about_f2: "Современное оборудование и точная диагностика", about_f3: "Индивидуальный и любящий подход",
