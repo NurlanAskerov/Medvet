@@ -2,7 +2,7 @@
 <html lang="az">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>MedVet Hospital</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -111,8 +111,6 @@
 
         .hero-right { flex: 0.9; background: var(--card-bg); padding: 20px; border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
         .hero-carousel { position: relative; width: 100%; height: 380px; border-radius: 20px; overflow: hidden; background-color: var(--bg-color); }
-        
-        /* BU HİSSƏDƏ DƏYİŞİKLİK EDİLDİ */
         .hero-carousel img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 1s ease; }
         .hero-carousel img.active { opacity: 1; }
         
@@ -163,11 +161,26 @@
         .booking-info h3 { font-size: 28px; font-weight: 700; margin-bottom: 15px; }
         .booking-info p { color: var(--light-text); margin-bottom: 25px; line-height: 1.6; }
         .booking-form { flex: 1; min-width: 300px; background: var(--bg-color); padding: 35px; border-radius: 20px; border: 1px solid var(--border-color); }
-        .form-group { margin-bottom: 20px; }
-        .form-row { display: flex; gap: 15px; }
-        .form-row .form-group { flex: 1; }
+        .form-group { margin-bottom: 20px; width: 100%; min-width: 0; }
+        .form-row { display: flex; gap: 15px; width: 100%; }
+        .form-row .form-group { flex: 1; min-width: 0; }
         .form-group label { display: block; font-size: 13px; color: var(--light-text); margin-bottom: 5px; font-weight: 500;}
-        .form-group input, .form-group select { width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); outline: none; font-size: 15px; font-family: 'Poppins', sans-serif; }
+        
+        /* INPUT SAFARİ OVERFLOW FIX */
+        .form-group input, .form-group select { 
+            width: 100%; 
+            max-width: 100%;
+            min-width: 0; /* Flexbox üçün vacibdir */
+            padding: 14px; 
+            border-radius: 12px; 
+            border: 1px solid var(--border-color); 
+            background: var(--card-bg); 
+            color: var(--text-color); 
+            outline: none; 
+            font-size: 15px; 
+            font-family: 'Poppins', sans-serif; 
+            box-sizing: border-box; /* Safari kənara çıxmasının qarşısını alır */
+        }
         .btn-whatsapp-form { width: 100%; background: #25D366; color: white; border: none; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; transition: 0.3s; }
         .btn-whatsapp-form:hover { background: #20b858; transform: translateY(-2px); }
 
@@ -232,10 +245,11 @@
             .doc-info { padding: 25px; }
             
             .social-btn { width: 100%; justify-content: center; }
-            .form-row { flex-direction: column; gap: 0; }
             
-            .booking-section { padding: 30px 20px; gap: 25px; }
-            .booking-form { padding: 25px 20px; min-width: 100%; }
+            /* FORMANIN MOBİL DÜZƏLİŞLƏRİ - DAŞMA VƏ FAB DÜYMƏSİ ÜÇÜN */
+            .form-row { flex-direction: column; gap: 15px; width: 100%; }
+            .booking-section { padding: 30px 20px; gap: 25px; padding-bottom: 80px; /* FAB düyməsi ilə toqquşmaması üçün altdan boşluq əlavə edildi */ }
+            .booking-form { padding: 25px 20px; width: 100%; box-sizing: border-box; overflow: hidden; /* Tam içəridə saxlamaq üçün */ }
             
             .bottom-nav {
                 position: fixed; bottom: 0; left: 0; width: 100%; height: 70px; background: var(--nav-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
@@ -251,7 +265,6 @@
             .fab-container { bottom: 90px; right: 20px; }
             .fab-main-btn { width: 55px; height: 55px; font-size: 28px; }
             
-            /* BU HİSSƏDƏ DƏYİŞİKLİK EDİLDİ */
             .hero-carousel { height: 250px; }
         }
     </style>
@@ -448,7 +461,7 @@
                 <div class="doc-info">
                     <h3>Dr. Eşqin Abaszadə</h3>
                     <p data-lang="doc_role_1">Peşəkar Baytar Həkim. Uzun illərin təcrübəsi ilə ev heyvanlarınızın sağlamlığına zəmanət verir.</p>
-                    <a href="tel:+994504408676" class="call-btn"><i class="fas fa-phone-alt"></i> <span data-lang="call_btn">Zəng et</span></a>
+                    <a href="tel:+994504408676" class="call-btn"><i class="fas fa-phone-alt"></i> <a href="tel:+994504408676" style="color: inherit; text-decoration: none;">+994 50 440 86 76</a></a>
                 </div>
             </div>
             <div class="doc-card">
@@ -458,7 +471,7 @@
                 <div class="doc-info">
                     <h3>Dr. Surxay Quluzadə</h3>
                     <p data-lang="doc_role_2">Uzman Veterinar. Cərrahi əməliyyatlar və dəqiq diaqnostika üzrə ixtisaslaşmış mütəxəssis.</p>
-                    <a href="tel:+994504408676" class="call-btn"><i class="fas fa-phone-alt"></i> <span data-lang="call_btn">Zəng et</span></a>
+                    <a href="tel:+994504408676" class="call-btn"><i class="fas fa-phone-alt"></i> <a href="tel:+994504408676" style="color: inherit; text-decoration: none;">+994 50 440 86 76</a></a>
                 </div>
             </div>
         </div>
@@ -521,7 +534,7 @@
                 <h3 data-lang="address_title">Ünvanımız</h3>
                 <p><i class="fas fa-map-marker-alt"></i> <span data-lang="address_detail">Gəncə prospekti 48A (Xəzər dairəsi), Bakı, Azərbaycan</span></p>
                 <p><i class="fas fa-clock"></i> <span data-lang="address_time">11:00 - 20:00 (Hər gün)</span></p>
-             <p><i class="fas fa-phone-alt"></i> <a href="tel:+994504408676" style="color: inherit; text-decoration: none;">+994 50 440 86 76</a></p>
+                <p><i class="fas fa-phone-alt"></i> <a href="tel:+994504408676" style="color: inherit; text-decoration: none;">+994 50 440 86 76</a></p>
             </div>
         </div>
     </div>
@@ -539,7 +552,7 @@
                 <i class="fab fa-facebook-f"></i> Medvet Klinika
             </a>
             <a href="https://wa.me/994504408676" target="_blank" class="social-btn">
-                <i class="fab fa-whatsapp"></i> +994 50 440 86 76
+                <i class="fab fa-whatsapp"></i> Medvet Klinika
             </a>
         </div>
     </div>
